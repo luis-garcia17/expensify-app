@@ -61,7 +61,7 @@ const Header = (props) => {
 };
 
 Header.defaultProps = {
-    title: `Indecision app`
+    title: `Indecision`
 };
 
 const Action = (props) => {
