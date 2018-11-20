@@ -19,6 +19,7 @@ var IndecisionApp = function (_React$Component) {
         _this.handleRemoveAll = _this.handleRemoveAll.bind(_this);
         _this.handlePick = _this.handlePick.bind(_this);
         _this.handleAddOption = _this.handleAddOption.bind(_this);
+        _this.handleDeleteOption = _this.handleDeleteOption.bind(_this);
         _this.state = {
             options: []
         };
@@ -40,6 +41,11 @@ var IndecisionApp = function (_React$Component) {
             });
         }
     }, {
+        key: 'handleDeleteOption',
+        value: function handleDeleteOption(option) {
+            console.log('hdo', option);
+        }
+    }, {
         key: 'handleAddOption',
         value: function handleAddOption(option) {
             if (!option) {
@@ -47,11 +53,8 @@ var IndecisionApp = function (_React$Component) {
             } else if (this.state.options.indexOf(option) > -1) {
                 return 'This option already exists';
             }
-
             this.setState(function (prevState) {
-                return {
-                    options: prevState.options.concat(option)
-                };
+                return { options: prevState.options.concat(option) };
             });
         }
     }, {
@@ -64,7 +67,7 @@ var IndecisionApp = function (_React$Component) {
                 null,
                 React.createElement(Header, { subtitle: subtitle }),
                 React.createElement(Action, { hasOptions: this.state.options.length > 0, handlePick: this.handlePick }),
-                React.createElement(Options, { options: this.state.options, handleRemoveAll: this.handleRemoveAll }),
+                React.createElement(Options, { options: this.state.options, handleRemoveAll: this.handleRemoveAll, handleDeleteOption: this.handleDeleteOption }),
                 React.createElement(AddOption, { handleAddOption: this.handleAddOption })
             );
         }
@@ -91,7 +94,7 @@ var Header = function Header(props) {
 };
 
 Header.defaultProps = {
-    title: 'Indecision app'
+    title: 'Indecision'
 };
 
 var Action = function Action(props) {
@@ -119,7 +122,7 @@ var Options = function Options(props) {
         React.createElement('br', null),
         '------------------',
         props.options.map(function (option) {
-            return React.createElement(Option, { key: option, optionText: option });
+            return React.createElement(Option, { key: option, optionText: option, handleDeleteOption: props.handleDeleteOption });
         })
     );
 };
@@ -128,7 +131,12 @@ var Option = function Option(props) {
     return React.createElement(
         'div',
         null,
-        props.optionText
+        props.optionText,
+        React.createElement(
+            'a',
+            { href: '#', onClick: props.handleDeleteOption },
+            'remove'
+        )
     );
 };
 
