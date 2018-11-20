@@ -16,11 +16,7 @@ class IndecisionApp extends React.Component {
     }
 
     handleRemoveAll() {
-        this.setState(() => {
-            return {
-                options: []
-            };
-        });
+        this.setState(() => ({ options: [] }));
     }
 
     handleAddOption (option) {
@@ -61,7 +57,7 @@ const Header = (props) => {
 };
 
 Header.defaultProps = {
-    title: `Indecision`
+    title: `Indecision app`
 };
 
 const Action = (props) => {

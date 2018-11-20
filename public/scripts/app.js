@@ -36,9 +36,7 @@ var IndecisionApp = function (_React$Component) {
         key: 'handleRemoveAll',
         value: function handleRemoveAll() {
             this.setState(function () {
-                return {
-                    options: []
-                };
+                return { options: [] };
             });
         }
     }, {
@@ -93,7 +91,7 @@ var Header = function Header(props) {
 };
 
 Header.defaultProps = {
-    title: 'Indecision'
+    title: 'Indecision app'
 };
 
 var Action = function Action(props) {
