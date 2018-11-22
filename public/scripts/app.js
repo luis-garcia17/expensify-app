@@ -27,6 +27,35 @@ var IndecisionApp = function (_React$Component) {
     }
 
     _createClass(IndecisionApp, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            try {
+                var json = localStorage.getItem('options');
+                var options = JSON.parse(json);
+
+                if (options) {
+                    this.setState(function () {
+                        return { options: options };
+                    }); //options: options is the same as options
+                }
+            } catch (e) {
+                //do nothing
+            }
+        }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate(prevProps, prevState) {
+            if (prevState.options.length !== this.state.options.length) {
+                var json = JSON.stringify(this.state.options);
+                localStorage.setItem('options', json);
+            }
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            console.log('Component will unmount');
+        }
+    }, {
         key: 'handlePick',
         value: function handlePick() {
             var randomNum = Math.floor(Math.random() * this.state.options.length);
@@ -70,7 +99,7 @@ var IndecisionApp = function (_React$Component) {
                 'div',
                 null,
                 React.createElement(Header, { subtitle: subtitle }),
-                React.createElement(Action, { hasOptions: this.state.options.length > 0, handlePick: this.handlePick }),
+                React.createElement(Action, { hasEnoughOptions: this.state.options.length >= 2, handlePick: this.handlePick }),
                 React.createElement(Options, { options: this.state.options, handleRemoveAll: this.handleRemoveAll, handleDeleteOption: this.handleDeleteOption }),
                 React.createElement(AddOption, { handleAddOption: this.handleAddOption })
             );
@@ -107,7 +136,7 @@ var Action = function Action(props) {
         null,
         React.createElement(
             'button',
-            { onClick: props.handlePick, disabled: !props.hasOptions },
+            { onClick: props.handlePick, disabled: !props.hasEnoughOptions },
             'What should I do?'
         )
     );
@@ -117,6 +146,16 @@ var Options = function Options(props) {
     return React.createElement(
         'div',
         null,
+        props.options.length === 0 && React.createElement(
+            'p',
+            null,
+            'Add activities to get started'
+        ),
+        props.options.length === 1 && React.createElement(
+            'p',
+            null,
+            'Add at least one more activity to get started'
+        ),
         'Your options here: ',
         React.createElement(
             'a',
@@ -170,6 +209,10 @@ var AddOption = function (_React$Component2) {
             this.setState(function () {
                 return { error: error };
             }); //error: error is the same as error 
+
+            if (!error) {
+                e.target.elements.option.value = '';
+            }
         }
     }, {
         key: 'render',

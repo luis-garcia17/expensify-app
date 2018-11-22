@@ -10,6 +10,31 @@ class IndecisionApp extends React.Component {
         };
     }
 
+    componentDidMount() {
+        try {
+            const json = localStorage.getItem('options');
+            const options = JSON.parse(json);
+
+            if(options) {
+                this.setState(() => ({options})); //options: options is the same as options
+            }        
+        } catch (e) {
+            //do nothing
+        }
+
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if(prevState.options.length !== this.state.options.length) {
+            const json = JSON.stringify(this.state.options);
+            localStorage.setItem('options', json);
+        }
+    }
+
+    componentWillUnmount() {
+        console.log(`Component will unmount`);
+    }
+
     handlePick() {
         const randomNum = Math.floor(Math.random() * this.state.options.length);
         const optionChosen = this.state.options[randomNum];
@@ -39,7 +64,7 @@ class IndecisionApp extends React.Component {
         return (
             <div>
             <Header subtitle = {subtitle} />
-            <Action hasOptions = {this.state.options.length > 0} handlePick = {this.handlePick} />
+            <Action hasEnoughOptions = {this.state.options.length >= 2} handlePick = {this.handlePick} />
             <Options options = {this.state.options} handleRemoveAll = {this.handleRemoveAll} handleDeleteOption = {this.handleDeleteOption}/>
             <AddOption handleAddOption = {this.handleAddOption} />
             </div>
@@ -63,7 +88,7 @@ Header.defaultProps = {
 const Action = (props) => {
         return (
             <div>
-            <button onClick={props.handlePick} disabled = {!props.hasOptions}>What should I do?</button>
+            <button onClick={props.handlePick} disabled = {!props.hasEnoughOptions}>What should I do?</button>
             </div>
         );
     };
@@ -71,6 +96,9 @@ const Action = (props) => {
 const Options = (props) => {
     return (       
         <div>
+        {props.options.length === 0 && <p>Add activities to get started</p>}
+        {props.options.length === 1 && <p>Add at least one more activity to get started</p>}
+        
         Your options here: <a onClick={props.handleRemoveAll} href="#">Remove all</a>
         <br/>
         ------------------
@@ -103,7 +131,12 @@ class AddOption extends React.Component {
         const option = e.target.elements.option.value.trim();
         const error = this.props.handleAddOption(option);      
         this.setState(() => ( {error})); //error: error is the same as error 
+
+        if(!error) {
+            e.target.elements.option.value = '';
+        }
     }
+
     render() {
         return (
             <div>
