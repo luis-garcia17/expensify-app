@@ -5,9 +5,10 @@
 // console.log(square(6));
 // console.log(add(6, 8));
 
-import {isAdult, canDrink} from './person.js'
+import isSenior, {isAdult, canDrink} from './person.js'
 
 const age = 19;
 
 console.log(isAdult(age));
 console.log(canDrink(age));
+console.log(isSenior(64));

@@ -69,7 +69,7 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__person_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__person_js__ = __webpack_require__(1);
 // import './utils.js';
 // import {square, add} from './utils.js';
 
@@ -81,24 +81,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 const age = 19;
 
-console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["b" /* isAdult */](age));
+console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["c" /* isAdult */](age));
 console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["a" /* canDrink */](age));
+console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["b" /* default */](64));
 
 /***/ }),
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 const isAdult =  (age) => age >= 18 ? 'Is adult' : 'Is baby';
-/* harmony export (immutable) */ __webpack_exports__["b"] = isAdult;
+/* harmony export (immutable) */ __webpack_exports__["c"] = isAdult;
  //age >=18 && 'Is adult' (Alternative syntax)
 const canDrink = (age) => age >= 21 ? 'Can drink' : 'Is a faggot';
 /* harmony export (immutable) */ __webpack_exports__["a"] = canDrink;
 
+const isSenior = (age) => age >= 65 ? 'Is senior' : 'Es chavo pero se le extiende si llena un formato';
 
-// export const isAdult =  (age) => age >= 18 
-// export const canDrink = (age) => age >= 21 
+/* harmony default export */ __webpack_exports__["b"] = (isSenior);
+// export default (age) => age >= 65 ? 'Is senior' : 'Es chavo pero se le extiende hasta los 67 si llena un formato';
+
+/*Syntax for booleans*/
+// export const isAdult =  (age) => age >= 18;
+// export const canDrink = (age) => age >= 21; 
+// const isSenior(age) => age >= 65;
+// export default isSenior;
+
+//export default (age) => age >= 65;
 
 /***/ })
 /******/ ]);
