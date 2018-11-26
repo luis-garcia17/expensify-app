@@ -1,3 +1,9 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const jsx = React.createElement('p', {}, 'test');
+ReactDOM.render(jsx, document.getElementById('app'));
+
 // import './utils.js';
 // import {square, add} from './utils.js';
 
@@ -5,10 +11,10 @@
 // console.log(square(6));
 // console.log(add(6, 8));
 
-import isSenior, {isAdult, canDrink} from './person.js'
+// import isSenior, {isAdult, canDrink} from './person.js'
 
-const age = 19;
+// const age = 19;
 
-console.log(isAdult(age));
-console.log(canDrink(age));
-console.log(isSenior(64));
+// console.log(isAdult(age));
+// console.log(canDrink(age));
+// console.log(isSenior(64));
