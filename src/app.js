@@ -1,20 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import IndecisionApp from './components/IndecisionApp'
 
-const jsx = React.createElement('p', {}, 'test');
-ReactDOM.render(jsx, document.getElementById('app'));
-
-// import './utils.js';
-// import {square, add} from './utils.js';
-
-// console.log('app.js is running!!!');
-// console.log(square(6));
-// console.log(add(6, 8));
-
-// import isSenior, {isAdult, canDrink} from './person.js'
-
-// const age = 19;
-
-// console.log(isAdult(age));
-// console.log(canDrink(age));
-// console.log(isSenior(64));
+ReactDOM.render(<IndecisionApp />, document.querySelector(`#app`));
