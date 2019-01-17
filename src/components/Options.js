@@ -6,10 +6,15 @@ const Options = (props) => (
         {props.options.length === 0 && <p>Add activities to get started</p>}
         {props.options.length === 1 && <p>Add at least one more activity to get started</p>}
         
-        Your options here: <a onClick={props.handleRemoveAll} href="#">Remove all</a>
-        <br/>
-        ------------------
+        Your options here: <button 
+        className="button button--link"
+        onClick={props.handleRemoveAll}
+        >
+        Remove all
+        </button>
+
         {props.options.map((option) => <Option key = {option} optionText = {option} handleDeleteOption = {props.handleDeleteOption} />)}
+
         </div>
     );
     
