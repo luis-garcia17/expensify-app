@@ -13,7 +13,13 @@ const Options = (props) => (
         </div>
 
 
-        {props.options.map((option) => <Option key = {option} optionText = {option} handleDeleteOption = {props.handleDeleteOption} />)}
+        {props.options.map((option, index) => 
+            <Option 
+            count = {index + 1}
+            key = {option} 
+            optionText = {option} 
+            handleDeleteOption = {props.handleDeleteOption} />
+            )}
 
         </div>
     );

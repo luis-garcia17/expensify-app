@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Option = (props) => (
-        <div>
+        <div className="option">
+         <p className="option__text">{props.count}. {props.optionText}</p>
 
-         {props.optionText}
          <button 
          className="button button--link"
          onClick={ (e) => {
@@ -12,7 +12,6 @@ const Option = (props) => (
          >
          remove
          </button>
-
         </div>
         );
 
