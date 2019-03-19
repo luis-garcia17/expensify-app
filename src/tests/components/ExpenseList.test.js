@@ -8,8 +8,8 @@ test('Should render expense list with expenses', () => {
     expect(wrapper).toMatchSnapshot();
 });
 
-test('Should render expense list with no nexpenses', () => {
-    const wrapper = shallow(<ExpenseList expenses={[]} />); // We pass the expenses prop manually because the component relies on mapStateToProps for this in the original one.
+test('Should render expense list with no expenses', () => {
+    const wrapper = shallow(<ExpenseList expenses={[]} />);
     expect(wrapper).toMatchSnapshot();
 });
 

@@ -29,7 +29,7 @@ exports[`Should render expense list with expenses 1`] = `
 </div>
 `;
 
-exports[`Should render expense list with no nexpenses 1`] = `
+exports[`Should render expense list with no expenses 1`] = `
 <div>
   <p>
     No expenses
