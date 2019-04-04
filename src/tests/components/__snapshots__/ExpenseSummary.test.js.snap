@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render component with no expenses 1`] = `
+<div>
+  <h1>
+    Viewing 
+    0
+     
+    expenses
+     with a total of 
+    $0.00
+  </h1>
+</div>
+`;
+
+exports[`Should render component with one expense 1`] = `
+<div>
+  <h1>
+    Viewing 
+    1
+     
+    expense
+     with a total of 
+    $1.00
+  </h1>
+</div>
+`;
+
+exports[`Should render component with two or more expenses 1`] = `
+<div>
+  <h1>
+    Viewing 
+    2
+     
+    expenses
+     with a total of 
+    $100.00
+  </h1>
+</div>
+`;

@@ -18,3 +18,6 @@ export default (expenses, {text, sortBy, startDate, endDate}) => {
         }
     });
 };
+
+/* Selectors are just functions that take redux state as an argument, you'll use them in other places like in a 
+component with mapStateToProps */
