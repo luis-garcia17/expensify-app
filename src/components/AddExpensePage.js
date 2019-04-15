@@ -1,12 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import ExpenseForm from './ExpenseForm';
-import {addExpense} from '../actions/expenses';
+import {startAddExpense} from '../actions/expenses';
 
 export class AddExpensePage extends React.Component {
     onSubmit = (expense) => {
         // props.dispatch(addExpense(expense));
-        this.props.addExpense(expense); //We do this because this way the component is more testable, the addExpense function would be difficult to test.
+        this.props.startAddExpense(expense); //We do this because this way the component is more testable, the addExpense function would be difficult to test.
         this.props.history.push('/');
     };
 
@@ -23,7 +23,7 @@ export class AddExpensePage extends React.Component {
     };
 
 const mapDispatchToProps = (dispatch) => ({
-        addExpense: (expense) => dispatch(addExpense(expense))  
+        startAddExpense: (expense) => dispatch(startAddExpense(expense))  
 });
 
 export default connect(undefined, mapDispatchToProps)(AddExpensePage);
