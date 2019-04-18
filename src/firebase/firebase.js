@@ -15,6 +15,7 @@ const config = {
 
   export {firebase, database as default};
 
+
   // database.ref('expenses').on('child_removed', snapshot => console.log(snapshot.key, snapshot.val()), error => console.log('Something failed', error.message));
   // database.ref('expenses').on('child_changed', snapshot => console.log(snapshot.key, snapshot.val()), error => console.log('Something failed', error.message));
   // database.ref('expenses').on('child_added', snapshot => console.log(snapshot.key, snapshot.val()), error => console.log('Something failed', error.message));
