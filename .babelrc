@@ -1,13 +1,13 @@
 {
     "presets": [
-        "env",
-        "react"
+      "env",
+      "react"
     ],
     "plugins": [
-        "transform-class-properties",
-        "transform-object-rest-spread"
+      "transform-class-properties",
+      "transform-object-rest-spread"
     ]
-}
+  }
 
 /*babel-loader which is installed (check package.json) runs both env which transforms es6 into es5 and react which transforms jsx and react functions into es5.
  it runs this into any file containing .js (as ordered in the module rules regular expression in test inside webpack.config.js)*/
