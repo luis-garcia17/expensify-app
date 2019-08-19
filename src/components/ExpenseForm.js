@@ -64,6 +64,7 @@ export default class ExpenseForm extends React.Component {
                 <form onSubmit = {this.onSubmit}>
                     <input 
                     type="text"
+                    className="text-input"
                     placeholder="description"
                     value={this.state.description} // If you provide a value it is automatically read-only, you have to set onChange in order for the input to be able to change.
                     onChange={this.onDescriptionChange}
@@ -71,6 +72,7 @@ export default class ExpenseForm extends React.Component {
                     />
                     <input 
                     type="text"
+                    className="text-input"
                     placeholder="amount"
                     value={this.state.amount}
                     onChange={this.onAmountChange}
@@ -84,6 +86,7 @@ export default class ExpenseForm extends React.Component {
                     isOutsideRange={() => false}
                     />
                     <textarea 
+                    className="textarea"
                     placeholder="Add a note for your expense (optional)"
                     value={this.state.note}
                     onChange={this.onNoteChange}
