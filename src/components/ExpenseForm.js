@@ -59,42 +59,42 @@ export default class ExpenseForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <p>{this.state.error}</p> {/* I tried this method and I think it is correct but Andrew went with {this.state.error && <p> {this.state.error} <p> */}
-                <form onSubmit = {this.onSubmit}>
-                    <input 
-                    type="text"
-                    className="text-input"
-                    placeholder="description"
-                    value={this.state.description} // If you provide a value it is automatically read-only, you have to set onChange in order for the input to be able to change.
-                    onChange={this.onDescriptionChange}
-                    autoFocus
-                    />
-                    <input 
-                    type="text"
-                    className="text-input"
-                    placeholder="amount"
-                    value={this.state.amount}
-                    onChange={this.onAmountChange}
-                    />
-                    <SingleDatePicker 
-                    date={this.state.createdAt} 
-                    onDateChange={this.onDateChange} 
-                    focused={this.state.calendarFocused}
-                    onFocusChange={this.onFocusChange} 
-                    numberOfMonths={1}
-                    isOutsideRange={() => false}
-                    />
-                    <textarea 
-                    className="textarea"
-                    placeholder="Add a note for your expense (optional)"
-                    value={this.state.note}
-                    onChange={this.onNoteChange}
-                    >
-                    </textarea>
-                    <button> Add expense</button>
-                </form>
-            </div>
+            <form className="form" onSubmit = {this.onSubmit}>
+               <p className="form__error"> {this.state.error} </p> {/* I tried this method and I think it is correct but Andrew went with {this.state.error && <p> {this.state.error} <p> */}                
+                <input 
+                type="text"
+                className="text-input"
+                placeholder="description"
+                value={this.state.description} // If you provide a value it is automatically read-only, you have to set onChange in order for the input to be able to change.
+                onChange={this.onDescriptionChange}
+                autoFocus
+                />
+                <input 
+                type="text"
+                className="text-input"
+                placeholder="amount"
+                value={this.state.amount}
+                onChange={this.onAmountChange}
+                />
+                <SingleDatePicker 
+                date={this.state.createdAt} 
+                onDateChange={this.onDateChange} 
+                focused={this.state.calendarFocused}
+                onFocusChange={this.onFocusChange} 
+                numberOfMonths={1}
+                isOutsideRange={() => false}
+                />
+                <textarea 
+                className="textarea"
+                placeholder="Add a note for your expense (optional)"
+                value={this.state.note}
+                onChange={this.onNoteChange}
+                >
+                </textarea>
+                <div>
+                    <button className="button"> Save expense </button>                
+                </div>
+            </form>
         )
     }
 }
