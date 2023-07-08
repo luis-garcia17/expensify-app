@@ -1,5 +1,5 @@
 # indecision-app
-App created in the react course by Andrew Mead
+App created to practice redux
 
 # Git commands
 
